@@ -1,0 +1,4 @@
+microservise-model: business capability, defining microservise corresponding to buisniss
+database-model: 2 database, one for IAM one per buisniss, and one for personal information,
+obsevability-model: performance matrics for monotoring the trafic by cpu and memory consumbtions also maybe i will considre also using logg aggregation for monitoring buisniss like some of user onformation
+networking-model: Api gatewaye puttern is enough noe need for event just to post a login and to get information
