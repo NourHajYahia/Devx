@@ -1,0 +1,47 @@
+<!-- html/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Saver</title>
+    <script>
+        async function saveNumber() {
+            const number = document.getElementById('numberInput').value;
+            if (number) {
+                const response = await fetch(`/save?number=${number}`, {
+                    method: 'GET',
+                });
+                
+                if (response.ok) {
+                    document.getElementById('output').innerText = `Saved number: ${number}`;
+                } else {
+                    document.getElementById('output').innerText = 'Error saving number.';
+                }
+            }
+        }
+
+        async function getNumber() {
+            const response = await fetch('/get', { method: 'GET' });
+            if (response.ok) {
+                const data = await response.text();
+                if (data) {
+                    document.getElementById('output').innerText = `Retrieved number: ${data}`;
+                } else {
+                    document.getElementById('output').innerText = 'No number found.';
+                }
+            } else {
+                document.getElementById('output').innerText = 'Error retrieving number.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello from Docker!</h1>
+    <h2>Number Saver</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="saveNumber()">Save Number</button>
+    <button onclick="getNumber()">Get Number</button>
+    <p id="output"></p>
+</body>
+</html>
