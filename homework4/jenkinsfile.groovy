@@ -52,7 +52,7 @@ pipeline {
                 script {
                     // Push the Docker image to Docker Hub
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        dockerImage.push('latest')
+                        dockerImage.push('simple-nginx-app')
                     }
                 }
             }
