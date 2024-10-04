@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('docker-hub-credentials')
-        IMAGE_NAME = 'gipsyone/devx/simple-nginx-app'
+        IMAGE_NAME = 'gipsyone/devx'
     }
 
     stages {
